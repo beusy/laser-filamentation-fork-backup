@@ -1,32 +1,51 @@
 # Laser Filamentation: Nonlinear Self-Channeling of Light
 
-Classical Electrodynamics project by second-year Bachelor students at École Polytechnique.
+<p align="center">
+  <img src="https://img.shields.io/badge/PHY204-Classical%20Electrodynamics-blue" />
+  <img src="https://img.shields.io/badge/Topic-Laser%20Filamentation-purple" />
+  <img src="https://img.shields.io/badge/Medium-Fused%20Silica-orange" />
+  <img src="https://img.shields.io/badge/Wavelength-800%20nm-red" />
+  <img src="https://img.shields.io/badge/Code-Jupyter%20Notebook-yellow" />
+  <img src="https://img.shields.io/badge/Report-LaTeX-green" />
+</p>
 
-This project studies the physics of femtosecond laser filamentation and nonlinear self-channeling of light in a transparent Kerr medium, with a focus on the cylindrically symmetric single-filament regime. The goal is to understand how an intense ultrashort laser pulse can self-focus, generate plasma, avoid catastrophic collapse, and propagate as a narrow high-intensity filament.
+## Overview
 
-The physical model is based on a generalized nonlinear Schrödinger equation for the electric-field envelope \(E(r,\tau,z)\), coupled to a Drude-type plasma rate equation for the free-electron density. The simulation includes the main mechanisms responsible for filamentation: radial diffraction, group-velocity dispersion, Kerr self-focusing, multiphoton absorption, plasma generation, plasma defocusing, avalanche ionisation, recombination and inverse-bremsstrahlung absorption.
+This repository contains the final report and numerical notebook for **PHY204 Project #17: Laser Filamentation — Nonlinear Self-Channeling of Light**, carried out by second-year Bachelor students at École Polytechnique.
 
-The numerical method uses a Strang split-step propagation scheme. The linear step combines Fourier-spectral propagation for group-velocity dispersion with a Crank--Nicolson finite-difference scheme for radial diffraction. The nonlinear step is evaluated pointwise and updates the field through Kerr, plasma and absorption contributions, while the plasma density is advanced in retarded time.
+The project studies femtosecond laser filamentation in a transparent nonlinear medium, with a focus on the **single-filament cylindrically symmetric regime**. We model the propagation of an ultrashort laser pulse in fused silica at a carrier wavelength of **800 nm**, and analyse how Kerr self-focusing, diffraction, group-velocity dispersion, multiphoton absorption and plasma generation combine to form a narrow high-intensity filament.
 
-The simulations are performed for fused silica at a carrier wavelength of 800 nm. The project reproduces the main qualitative and quantitative signatures of laser filamentation: Kerr-driven self-focusing near the Marburger collapse distance, plasma-mediated intensity clamping, pulse splitting and dynamic replenishment, formation of a narrow plasma channel, and the appearance of conical/X-wave structures in the angular spectrum.
+## Physical model
+
+The simulation is based on a cylindrically symmetric generalized nonlinear Schrödinger equation for the electric-field envelope $E(r,\tau,z)$ coupled to a Drude-type plasma rate equation for the free-electron density $\rho(r,\tau,z)$.
+
+The model includes:
+
+- radial diffraction,
+- group-velocity dispersion,
+- Kerr self-focusing and self-phase modulation,
+- multiphoton absorption,
+- multiphoton ionisation,
+- plasma defocusing,
+- avalanche ionisation,
+- recombination,
+- inverse-Bremsstrahlung plasma absorption.
+
+The goal is to reproduce and interpret the main signatures of laser filamentation: **self-focusing, intensity clamping, plasma-channel formation, pulse splitting, dynamic replenishment and conical/X-wave spectral structure**.
 
 ## Repository contents
 
-- `Laser_Filamentation__Nonlinear_Self_Channeling_of_Light.pdf`  
-  Final written report for PHY204 Project #17.
-
-- `filamentation_v1 Final.ipynb`  
-  Jupyter notebook containing the numerical implementation, validation tests, simulations and figures used in the report.
-
-## Main objectives
-
-1. Identify the minimal physical ingredients required to reproduce filamentation.
-2. Implement a stable numerical propagation method for the cylindrically symmetric optical envelope.
-3. Interpret the simulated filament in terms of self-focusing, plasma defocusing, dynamic replenishment and conical/X-wave propagation.
+| File | Description |
+|---|---|
+| [`Laser_Filamentation__Nonlinear_Self_Channeling_of_Light.pdf`](./Laser_Filamentation__Nonlinear_Self_Channeling_of_Light.pdf) | Final written report |
+| [`filamentation_v1 Final.ipynb`](./filamentation_v1%20Final.ipynb) | Jupyter notebook containing the numerical implementation, validation tests and simulations |
+| [`.gitignore`](./.gitignore) | Files ignored by Git, including Python/Jupyter temporary files |
 
 ## Authors
 
-Mayad MNIF  
-Don VAN BEUSICHEM  
-Nayl POIROT  
-Marc OBEID
+- Mayad MNIF  
+- Don VAN BEUSICHEM  
+- Nayl POIROT  
+- Marc OBEID  
+
+École Polytechnique — PHY204 Classical Electrodynamics
