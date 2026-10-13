@@ -1,51 +1,45 @@
-# Laser Filamentation: Nonlinear Self-Channeling of Light
+# Femtosecond Laser Filamentation in Fused Silica
 
-<p align="center">
-  <img src="https://img.shields.io/badge/PHY204-Classical%20Electrodynamics-blue" />
-  <img src="https://img.shields.io/badge/Topic-Laser%20Filamentation-purple" />
-  <img src="https://img.shields.io/badge/Medium-Fused%20Silica-orange" />
-  <img src="https://img.shields.io/badge/Wavelength-800%20nm-red" />
-  <img src="https://img.shields.io/badge/Code-Jupyter%20Notebook-yellow" />
-  <img src="https://img.shields.io/badge/Report-LaTeX-green" />
-</p>
+Numerical study of nonlinear pulse propagation, self-focusing, and plasma-mediated intensity clamping at a carrier wavelength of 800 nm.
 
 ## Overview
 
-This repository contains the final report and numerical notebook for **PHY204 Project #17: Laser Filamentation — Nonlinear Self-Channeling of Light**, carried out by second-year Bachelor students at École Polytechnique.
+This work investigates how diffraction, dispersion, Kerr nonlinearity, and ionisation govern the propagation of an ultrashort laser pulse in fused silica. A cylindrically symmetric envelope model resolves the coupled evolution of the optical field and free-electron density in the single-filament regime.
 
-The project studies femtosecond laser filamentation in a transparent nonlinear medium, with a focus on the **single-filament cylindrically symmetric regime**. We model the propagation of an ultrashort laser pulse in fused silica at a carrier wavelength of **800 nm**, and analyse how Kerr self-focusing, diffraction, group-velocity dispersion, multiphoton absorption and plasma generation combine to form a narrow high-intensity filament.
+The accompanying notebook contains the numerical implementation, component validation, and propagation diagnostics. The report develops the physical model and discusses the numerical results.
 
 ## Physical model
 
-The simulation is based on a cylindrically symmetric generalized nonlinear Schrödinger equation for the electric-field envelope $E(r,\tau,z)$ coupled to a Drude-type plasma rate equation for the free-electron density $\rho(r,\tau,z)$.
+A generalized nonlinear Schrödinger equation for the field envelope is coupled to a plasma rate equation in the retarded-time frame. The model includes:
 
-The model includes:
+- Radial diffraction and group-velocity dispersion.
+- Kerr self-focusing and self-phase modulation.
+- Multiphoton absorption and ionisation.
+- Plasma defocusing and inverse-Bremsstrahlung absorption.
+- Avalanche ionisation and recombination.
 
-- radial diffraction,
-- group-velocity dispersion,
-- Kerr self-focusing and self-phase modulation,
-- multiphoton absorption,
-- multiphoton ionisation,
-- plasma defocusing,
-- avalanche ionisation,
-- recombination,
-- inverse-Bremsstrahlung plasma absorption.
+The cylindrical symmetry and paraxial envelope approximation restrict the scope to single-filament propagation; transverse symmetry breaking and multiple filaments are outside this model.
 
-The goal is to reproduce and interpret the main signatures of laser filamentation: **self-focusing, intensity clamping, plasma-channel formation, pulse splitting, dynamic replenishment and conical/X-wave spectral structure**.
+## Numerical methods
 
-## Repository contents
+Propagation uses a symmetric split-step scheme, combining Fourier-domain dispersion with Crank–Nicolson radial diffraction. The plasma rate equation is integrated along retarded time, and an absorbing outer radial region limits boundary reflections.
 
-| File | Description |
+Validation cases include Gaussian-beam diffraction, dispersive pulse broadening, subcritical Kerr propagation, and multiphoton absorption. Diagnostics track peak intensity, electron density, beam width, pulse energy, temporal evolution, and spectral structure.
+
+## Report and implementation
+
+| Resource | Contents |
 |---|---|
-| [`Laser_Filamentation__Nonlinear_Self_Channeling_of_Light.pdf`](./Laser_Filamentation__Nonlinear_Self_Channeling_of_Light.pdf) | Final written report |
-| [`filamentation_v1 Final.ipynb`](./filamentation_v1%20Final.ipynb) | Jupyter notebook containing the numerical implementation, validation tests and simulations |
-| [`.gitignore`](./.gitignore) | Files ignored by Git, including Python/Jupyter temporary files |
+| [Report](./Laser_Filamentation__Nonlinear_Self_Channeling_of_Light.pdf) | Physical formulation, numerical analysis, and discussion |
+| [Simulation notebook](./filamentation_v1%20Final.ipynb) | Solver, validation cases, and propagation calculations |
+
+## Running the notebook
+
+The implementation uses Python with NumPy, SciPy, and Matplotlib, in a Jupyter environment. Open the simulation notebook and execute its cells in order. Material parameters, pulse settings, and grid resolution are defined near the beginning of the notebook. Full propagation calculations can be computationally intensive.
 
 ## Authors
 
-- Mayad MNIF  
-- Don VAN BEUSICHEM  
-- Nayl POIROT  
-- Marc OBEID  
+Mayad Mnif · Don van Beusichem · Nayl Poirot · Marc Obeid  
+École Polytechnique
 
-École Polytechnique — PHY204 Classical Electrodynamics
+This repository presents the authors' collaborative computational study. The original shared implementation and report are available in the [collaborative repository](https://github.com/MarcObeid06/Laser-Filamentation-Nonlinear-Self-Channeling-of-Light).
